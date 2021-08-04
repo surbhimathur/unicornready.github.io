@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate</title>
+
+    <script>
+        
+       
+        function calculation()
+        {
+            const cart=document.getElementById("product_code").value;
+            let totalAmount=0;
+            let cartMap={'A':0,'B':0,'C':0,'D':0}
+            for(let i=0;i<cart.length;i++) {
+              cartMap[cart[i]]=cartMap[cart[i]]+1;
+            }
+            totalAmount=totalAmount+(Math.floor(cartMap['A']/4)*100)+(cartMap['A']%4)*35
+            totalAmount=totalAmount+cartMap['B']*65
+            totalAmount=totalAmount+(Math.floor(cartMap['C']/6)*250)+(cartMap['C']%6)*50
+            totalAmount=totalAmount+cartMap['D']*85
+            document.getElementById("total").value=totalAmount;
+            
+    }
+
+    </script>
+</head>
+<body>
+    <div class="main">
+        
+            <label for="product_code">Enter product code:</label>
+            <input type="text" id="product_code" name="product_code" placeholder="Enter product code"><br>
+
+            <label for="total">Total Amount To Be Paid:</label>
+            <input type="text" id="total" name="total" placeholder="Total Amount"><br>
+
+            <button id="calculate" onclick="calculation()">Calculate</button>
+
+        
+    </div>
+</body>
+</html>
